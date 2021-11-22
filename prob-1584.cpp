@@ -17,18 +17,12 @@ struct Set {
 		return u;
 	}
 	void join(int u, int v) {
-		int f1 = find(u);
-		int f2 = find(v);
-		if(sz[f1] < sz[f2]) {
-			link[f1] = f2;
-			sz[f2] += sz[f1];
-			sz[f1] = sz[f2];
-		}
-		else {
-			link[f2] = f1;
-			sz[f1] += sz[f2];
-			sz[f2] = sz[f1];
-		}
+		u = find(u);
+		v = find(v);
+		if(sz[u] < sz[v])
+			swap(u,v);
+		sz[u] += sz[v];
+		link[v] = u;
 	}
 };
 
@@ -40,10 +34,11 @@ public:
     int minCostConnectPoints(vector<vector<int>>& points) {
 		const int N = (int) points.size();
 		priority_queue<vector<int>> edges;
-		for(int i = 0; i < N; i++) for(int j = 1; j < N; j++) {
+		for(int i = 0; i < N-1; i++) for(int j = i + 1; j < N; j++) {
 			if(i == j) continue;
 			edges.push({-manhattan_distance(points[i], points[j]), i, j});
 		}
+		cout << "total edges: " << edges.size() << '\n';
 		int ans = 0;
 		Set s(N);
 		while(!edges.empty()) {
