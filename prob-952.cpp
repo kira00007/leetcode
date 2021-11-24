@@ -30,12 +30,11 @@ public:
 		int check = 0;
 		for(int i = 0; i < (int) edges.size(); i++) {
 			if(find(edges[i][0]) != find(edges[i][1])) {
-				join(edges[i][0], edges[i][1]);
+				ans = max(ans, join(edges[i][0], edges[i][1]));
 				check++;
 			}
 			if(check == N-1) return N;
 		}
-		for(int i = 0; i < N; i++) ans = max(ans, sz[i]);
 		return ans;
     }
 };
