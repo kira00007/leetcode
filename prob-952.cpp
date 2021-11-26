@@ -23,16 +23,11 @@ public:
         for(int i = 0; i < N; i++) link[i] = i;
 		for(int i = 0; i < N; i++) sz[i] = 1;
 		vector<vector<int>> edges;
-		for(int i = 0; i < N-1; i++) for(int j = i + 1; j < N; j++)
-			if(__gcd(nums[i], nums[j]) > 1)
-				edges.push_back({i, j});
 		int ans = 0;
 		int check = 0;
-		for(int i = 0; i < (int) edges.size(); i++) {
-			if(find(edges[i][0]) != find(edges[i][1])) {
-				ans = max(ans, join(edges[i][0], edges[i][1]));
-				check++;
-			}
+		for(int i = 0; i < N-1; i++) for(int j = i + 1; j < N; j++) {
+			if(__gcd(nums[i], nums[j]) > 1 && find(i) != find(j))
+				ans = max(ans, join(i, j)), check++;
 			if(check == N-1) return N;
 		}
 		return ans;
