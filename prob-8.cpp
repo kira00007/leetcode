@@ -4,14 +4,14 @@ using namespace std;
 class Solution {
 public:
     bool isdigit(char ch) {
-        return (ch > 47 && ch < 58); 
+        return (ch > 47 && ch < 58);
     }
     int myAtoi(string s) {
         const int N = (int) s.size();
         int it = 0, en = N;
         for(; it < N; it++) {
             if(isdigit(s[it]) || s[it] == '+' || s[it] == '-') break;
-            if(s[it] != ' ') return 0;            
+            if(s[it] != ' ') return 0;
         }
         bool sgn = true;
         if(s[it] == '+') it++;

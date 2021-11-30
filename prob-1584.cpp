@@ -65,7 +65,7 @@ int main() {
 	// vector<vector<int>> points = { {0,0} };
 	// vector<vector<int>> points = { {0,0},{1,1},{1,0},{-1,1} };
 	// vector<vector<int>> points = { {0,0},{2,2},{3,10},{5,2},{7,0} };
-	vector<vector<int>> points = { 
+	vector<vector<int>> points = {
 		{3734,898},
 		{-4934,-6748},
 		{-3921,7263},

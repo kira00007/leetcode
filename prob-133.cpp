@@ -4,7 +4,7 @@ using namespace std;
 struct Node {
 	int val;
 	vector<Node*> neighbors;
-	Node() 
+	Node()
 		: val(0), neighbors(vector<Node*>())
 	{
 
@@ -15,7 +15,7 @@ struct Node {
 
 	}
 	Node(int _val, const vector<Node*> &_neighbors)
-		: val(_val), neighbors(_neighbors) 
+		: val(_val), neighbors(_neighbors)
 	{
 
 	}
