@@ -6,18 +6,17 @@ public:
     bool ob(char ch) {
         return (ch == '(' || ch == '[' || ch == '{');
     }
+    stack<char> st;
 	map<char,char> cb = {
 		{')', '('},
 		{']', '['},
 		{'}', '{'}
 	};
     bool isValid(string s) {
-        stack<char> st;
         for(char ch : s) {
             if(ob(ch)) st.push(ch);
             else {
-                if(st.empty()) return false;
-                if(st.top() == cb[ch]) st.pop();
+                if(!st.empty() && st.top() == cb[ch]) st.pop();
                 else return false;
             }
         }
