@@ -13,7 +13,7 @@ public:
                 int r = i + 1;
                 while(r < n && a[r] < a[i]) r++;
                 if(r >= n || a[r] < a[i]) {
-                    i = r - 1;	
+                    i = r - 1;
                     continue;
                 }
                 pair<int,int> interval = {min(i,r), max(i,r)};
